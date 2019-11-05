@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { AppComponent } from './app.component';
-import { JoinGameComponent } from './components/join-game/join-game.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { PlayerSetupComponent } from './components/player-setup/player-setup.component';
 import { AppMaterialModule } from './modules/app-material.module';
@@ -15,7 +14,6 @@ const socketConfig: SocketIoConfig = {
     options: {
         query: {
             playerId: localStorage.getItem('playerId'),
-            gameId: localStorage.getItem('gameId'),
         }
     }
 };
@@ -23,7 +21,6 @@ const socketConfig: SocketIoConfig = {
 @NgModule({
     declarations: [
         AppComponent,
-        JoinGameComponent,
         NavigationComponent,
         PlayerSetupComponent,
     ],
@@ -38,4 +35,8 @@ const socketConfig: SocketIoConfig = {
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+    // todo
+    //   landing page to decide if we rejoin an existing game when we load the app
+    //   waiting page to list all the players with a button to start the game
+}

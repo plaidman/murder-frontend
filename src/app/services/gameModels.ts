@@ -20,7 +20,6 @@ enum GameState {
 }
 
 export interface Game {
-    id: string;
     players: Record<string, Player>;
     tableCards: Card[];
     state: GameState;
@@ -31,7 +30,6 @@ export interface Game {
 
 interface Player {
     id: string;
-    gameId: string;
     name: string;
     expertise: string;
     handCards: Card[];
@@ -39,8 +37,6 @@ interface Player {
 }
 
 interface Card {
-    id: string;
-    gameId: string;
     description: string;
     type: CardType;
     expertise: string;
@@ -48,5 +44,3 @@ interface Card {
     accusedPlayerId: string;
     isConclusive: boolean; // if true, permanently face up and can't be traded
 }
-
-export type Nullable<T> = T | null;

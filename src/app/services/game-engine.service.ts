@@ -1,38 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { Observable, Subscriber, Subscription } from 'rxjs';
-import { Game, Nullable } from 'src/models';
-
-enum GameJoinedStatus {
-    SUCCESS = 'success',
-    FAILURE = 'failure',
-    RESUME = 'resume',
-}
-
-export interface GameJoinedData {
-    gameId: string;
-    playerId: string;
-    status: GameJoinedStatus;
-    game: Game;
-}
+import { Observable, Subscription } from 'rxjs';
+import { GameUpdated, PlayerAdded, SetupPlayer } from './socketModels';
 
 @Injectable({
     providedIn: 'root',
 })
 export class GameEngineService {
+    private gameUpdatedObservable: Observable<GameUpdated>;
+
     constructor(
         private socket: Socket,
-    ) {}
-
-    public joinGame(gameId: Nullable<string>): void {
-        this.socket.emit('joinGame', gameId);
-    }
-
-    public gameJoinedObservable(): Observable<GameJoinedData> {
-        return new Observable<GameJoinedData>((observer) => {
-            this.socket.on('gameJoined', (gameJoinedData: GameJoinedData) => {
-                observer.next(gameJoinedData);
+    ) {
+        this.gameUpdatedObservable = new Observable<GameUpdated>((observer) => {
+            this.socket.on('gameUpdated', (gameUpdatedData: GameUpdated) => {
+                observer.next(gameUpdatedData);
             });
         });
+    }
+
+    public setupPlayer(
+        formData: SetupPlayer,
+        subscriber: (playerAddedData: PlayerAdded) => void,
+    ): Subscription {
+        const observable = new Observable<PlayerAdded>((observer) => {
+            this.socket.on('playerAdded', (playerAddedData: PlayerAdded) => {
+                observer.next(playerAddedData);
+            });
+        });
+
+        const subscription = observable.subscribe(subscriber);
+        this.socket.emit('setupPlayer', formData);
+        return subscription;
+    }
+
+    public getGameUpdatedObservable(): Observable<GameUpdated> {
+        return this.gameUpdatedObservable;
     }
 }

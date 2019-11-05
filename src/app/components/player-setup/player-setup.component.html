@@ -1,1 +1,29 @@
-<p>player-setup works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <p>Choose a player name and an expertise. For instance: 'geoffrey the pidgeon trainer'</p>
+
+  <mat-form-field>
+    <input formControlName="name" matInput placeholder="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input formControlName="expertise" matInput placeholder="expertise" />
+  </mat-form-field>
+
+  <p>Make up two murder weapons that are closely related to your expertise. For instance: 'pidgeon feather tipped with poison'</p>
+
+  <div formArrayName="weapons" *ngFor="let item of form.get('weapons').controls; let i = index;">
+    <mat-form-field>
+      <input matInput [formControlName]="i" placeholder="weapon">
+    </mat-form-field>
+  </div>
+
+  <p>Make up four pieces of evidence that relate to your expertise. Can be a motive or a found piece of evidence. For instance: 'found: pidgeon coreography sheet' or 'motive: Guy Fieri cooked a pidgeon on his show last night'</p>
+
+  <div formArrayName="evidence" *ngFor="let item of form.get('evidence').controls; let i = index;">
+    <mat-form-field>
+      <input matInput [formControlName]="i" placeholder="evidence">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit">join game</button>
+</form>
