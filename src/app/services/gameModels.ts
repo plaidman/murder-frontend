@@ -4,7 +4,7 @@ enum CardType {
     EVIDENCE = 'evidence',
 }
 
-enum GameState {
+export enum GameState {
     GATHER = 'gather', // people entering the game
     SHUFFLE = 'shuffle', // shuffle cards and suspects and accusor order
     ACCUSOR = 'accusor', // assign the first/next accusor

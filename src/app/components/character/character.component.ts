@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-// import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GameEngineService } from 'src/app/services/game-engine.service';
 import { PlayerAdded } from 'src/app/services/socketModels';
 
 @Component({
-    selector: 'app-player-setup',
-    templateUrl: './player-setup.component.html',
-    styleUrls: ['./player-setup.component.scss']
+    selector: 'app-character',
+    templateUrl: './character.component.html',
+    styleUrls: ['./character.component.scss']
 })
-export class PlayerSetupComponent {
+export class CharacterComponent {
     private form: FormGroup;
     private subscription: Subscription;
 
     constructor(
         formBuilder: FormBuilder,
-        // private router: Router,
+        private router: Router,
         private gameEngine: GameEngineService,
     ) {
         this.form = formBuilder.group({
@@ -36,15 +36,18 @@ export class PlayerSetupComponent {
     }
 
     public onSubmit(): void {
-        this.subscription = this.gameEngine.setupPlayer(this.form.value, this.playerAdded.bind(this));
+        this.subscription = this.gameEngine.setupPlayer(
+            this.form.value,
+            this.playerAdded.bind(this),
+        );
     }
 
     private playerAdded(playerAddedData: PlayerAdded): void {
         localStorage.setItem('playerId', playerAddedData.playerId);
-        // do stuff here to pass along the game data from playerAddedData to the next component
-        console.log(playerAddedData.game);
+        // todo save form data to local storage, then prepop with whatever they entered for next game
+        // todo maybe offer a couple prebuilt characters
 
         this.subscription.unsubscribe();
-        // this.router.navigateByUrl('game');
+        this.router.navigateByUrl('waiting');
     }
 }

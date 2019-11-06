@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlayerSetupComponent } from '../components/player-setup/player-setup.component';
+import { CharacterComponent } from '../components/character/character.component';
+import { GameComponent } from '../components/game/game.component';
+import { WaitingComponent } from '../components/waiting/waiting.component';
 
 const routes: Routes = [
-    { path: 'character', component: PlayerSetupComponent },
-    // { path: 'waiting', component: PlayerSetupComponent },
-    // { path: 'game', component: PlayerSetupComponent },
+    { path: 'character', component: CharacterComponent },
+    { path: 'waiting', component: WaitingComponent },
+    { path: 'game', component: GameComponent },
     { path: '**', redirectTo: 'character' },
 ];
 
