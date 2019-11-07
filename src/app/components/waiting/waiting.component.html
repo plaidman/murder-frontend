@@ -1,4 +1,4 @@
-<h3>Waiting For Others...</h3>
+<h3>Waiting for others...</h3>
 
 <div *ngIf="game !== undefined">
   <mat-list>
@@ -7,5 +7,5 @@
     </mat-list-item>
   </mat-list>
 
-  <button mat-raised-button color="primary" (click)="startGame()">start game</button>
+  <button (click)="startGame()" color="primary" [disabled]="!submitEnabled" mat-raised-button>start game</button>
 </div>

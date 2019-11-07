@@ -14,6 +14,7 @@ export class WaitingComponent implements OnInit, OnDestroy {
     private game: Game;
     private subscription: Subscription;
     private playerId: string;
+    public submitEnabled: boolean;
 
     constructor(
         private gameEngine: GameEngineService,
@@ -21,31 +22,42 @@ export class WaitingComponent implements OnInit, OnDestroy {
     ) {}
 
     public ngOnInit() {
-        const observable = this.gameEngine.getGameUpdatedObservable();
-        this.subscription = observable.subscribe(this.updateGame.bind(this));
-        this.gameEngine.initGame();
+        this.submitEnabled = true;
+
+        if (this.subscription === undefined) {
+            const observable = this.gameEngine.getGameUpdatedObservable();
+            this.subscription = observable.subscribe(this.updateGame.bind(this));
+        }
+
+        this.gameEngine.requestGame();
     }
 
     public ngOnDestroy() {
+        this.submitEnabled = true;
         this.subscription.unsubscribe();
+        this.subscription = undefined;
     }
 
     public startGame() {
-        console.log('start game');
+        this.submitEnabled = false;
+        this.gameEngine.startGame(this.playerId);
     }
 
     private updateGame(gameUpdatedData: GameUpdated): void {
         this.playerId = localStorage.getItem('playerId');
         this.game = gameUpdatedData.game;
+        console.log('game update', this.game);
 
         if (!Object.keys(this.game.players).includes(this.playerId)) {
             this.router.navigateByUrl('character');
         }
 
-        if (this.game.state === GameState.ACCUSOR) {
-            // go to the game view
+        if (this.game.state === GameState.SHUFFLE) {
+            this.submitEnabled = false;
         }
 
-        console.log('game update', this.game);
+        if (this.game.state === GameState.COLLECT) {
+            this.router.navigateByUrl('game');
+        }
     }
 }

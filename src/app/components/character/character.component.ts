@@ -20,17 +20,17 @@ export class CharacterComponent {
         private gameEngine: GameEngineService,
     ) {
         this.form = formBuilder.group({
-            name: '',
-            expertise: '',
+            name: 'name',
+            expertise: 'exp',
             weapons: formBuilder.array([
-                formBuilder.control(''),
-                formBuilder.control(''),
+                formBuilder.control('w1'),
+                formBuilder.control('w2'),
             ]),
             evidence: formBuilder.array([
-                formBuilder.control(''),
-                formBuilder.control(''),
-                formBuilder.control(''),
-                formBuilder.control(''),
+                formBuilder.control('e1'),
+                formBuilder.control('e2'),
+                formBuilder.control('e3'),
+                formBuilder.control('e4'),
             ])
         });
     }

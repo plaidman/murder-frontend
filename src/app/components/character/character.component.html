@@ -1,4 +1,4 @@
-<h3>Who Are You?</h3>
+<h3>Who are you?</h3>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <p>Choose a character name and an expertise. For instance: 'geoffrey the pidgeon trainer'</p>
@@ -15,7 +15,7 @@
 
   <div formArrayName="weapons" *ngFor="let item of form.get('weapons').controls; let i = index;">
     <mat-form-field>
-      <input matInput [formControlName]="i" placeholder="weapon">
+      <input [formControlName]="i" matInput placeholder="weapon">
     </mat-form-field>
   </div>
 
@@ -23,7 +23,7 @@
 
   <div formArrayName="evidence" *ngFor="let item of form.get('evidence').controls; let i = index;">
     <mat-form-field>
-      <input matInput [formControlName]="i" placeholder="evidence">
+      <input [formControlName]="i" matInput placeholder="evidence">
     </mat-form-field>
   </div>
 

@@ -1,4 +1,4 @@
-enum CardType {
+export enum CardType {
     WEAPON = 'weapon',
     MOTIVE = 'motive',
     EVIDENCE = 'evidence',
@@ -7,13 +7,12 @@ enum CardType {
 export enum GameState {
     GATHER = 'gather', // people entering the game
     SHUFFLE = 'shuffle', // shuffle cards and suspects and accusor order
-    ACCUSOR = 'accusor', // assign the first/next accusor
     COLLECT = 'collect', // everybody is dealt an evidence card and looks at it
     ACCUSE = 'accuse', // reveal accusor's cards
     REBUTTAL = 'rebuttal', // choose 'pass the blame (and another card)' or 'explain the evidence'
     PEEK = 'peek', // accusor gets to peek at a card, based on the result of the rebuttal
     EXPERT = 'expert', // expert chooses conclusive or inconclusive
-    // then goes back to accusor
+    // then goes back to collect
     REVELATION = 'revelation', // at any time, someone can make a thrilling revelation
     SWAP = 'swap', // if revelation is wrong, accused player can swap one card
     DONE = 'done', // game is finished
@@ -26,9 +25,10 @@ export interface Game {
     accusorIds: string[];
     currentAccusor: number;
     accusedId: string;
+    messages: string[];
 }
 
-interface Player {
+export interface Player {
     id: string;
     name: string;
     expertise: string;
@@ -36,7 +36,7 @@ interface Player {
     canFindEvidence: boolean; // false if they have made an incorrect revelation
 }
 
-interface Card {
+export interface Card {
     description: string;
     type: CardType;
     expertise: string;

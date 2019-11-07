@@ -34,8 +34,12 @@ export class GameEngineService {
         return subscription;
     }
 
-    public initGame(): void {
-        this.socket.emit('initGame');
+    public startGame(playerId: string): void {
+        this.socket.emit('startGame', { playerId });
+    }
+
+    public requestGame(): void {
+        this.socket.emit('requestGame');
     }
 
     public getGameUpdatedObservable(): Observable<GameUpdated> {
