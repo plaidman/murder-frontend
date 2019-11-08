@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class LoggerService {
-  // todo based on environment, enable or disable logging
+    // todo based on environment, enable or disable logging
 
     public debug(message: string, context?: Record<string, any>): void {
         console.debug(message, context);

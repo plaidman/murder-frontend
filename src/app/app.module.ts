@@ -39,8 +39,4 @@ const socketConfig: SocketIoConfig = {
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {
-    // todo
-    //   landing page to decide if we rejoin an existing game when we load the app
-    //   waiting page to list all the players with a button to start the game
-}
+export class AppModule {}

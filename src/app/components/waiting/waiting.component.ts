@@ -56,7 +56,7 @@ export class WaitingComponent implements OnInit, OnDestroy {
             this.submitEnabled = false;
         }
 
-        if (this.game.state === GameState.COLLECT) {
+        if (![GameState.GATHER, GameState.SHUFFLE].includes(this.game.state)) {
             this.router.navigateByUrl('game');
         }
     }

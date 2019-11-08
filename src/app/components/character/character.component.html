@@ -11,7 +11,7 @@
     <input formControlName="expertise" matInput placeholder="expertise" />
   </mat-form-field>
 
-  <p>Make up two murder weapons that are closely related to your expertise. For instance: 'pidgeon feather tipped with poison'</p>
+  <p>Make up two murder weapons that are closely related to your expertise. For instance: 'feather tipped with poison'</p>
 
   <div formArrayName="weapons" *ngFor="let item of form.get('weapons').controls; let i = index;">
     <mat-form-field>

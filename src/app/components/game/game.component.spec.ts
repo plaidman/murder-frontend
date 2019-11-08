@@ -1,5 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { SocketIoModule } from 'ngx-socket-io';
+import { AppMaterialModule } from 'src/app/modules/app-material.module';
+import { AppRoutingModule } from 'src/app/modules/app-routing.module';
+import { CharacterComponent } from '../character/character.component';
+import { WaitingComponent } from '../waiting/waiting.component';
 import { GameComponent } from './game.component';
 
 describe('GameComponent', () => {
@@ -8,9 +13,18 @@ describe('GameComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ GameComponent ]
-        })
-    .compileComponents();
+            declarations: [
+                GameComponent,
+                CharacterComponent,
+                WaitingComponent,
+            ],
+            imports: [
+                AppMaterialModule,
+                AppRoutingModule,
+                ReactiveFormsModule,
+                SocketIoModule.forRoot({ url: '' }),
+            ],
+        }).compileComponents();
     }));
 
     beforeEach(() => {
