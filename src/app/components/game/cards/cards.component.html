@@ -1,0 +1,19 @@
+<h3>Cards</h3>
+
+<div class="players">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let player of players | keyvalue">
+      <mat-expansion-panel-header>
+        <mat-panel-title><span [ngClass]="{ bold: (playerId === player.value.id) }">{{player.value.name}}, {{player.value.expertise}}</span></mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ul class="cardList">
+        <li *ngFor="let card of player.value.handCards">
+          <div [ngClass]="{'card': true, 'enabled': (playerId === player.value.id)}">
+            <mat-icon>{{(playerId === player.value.id) ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </div>
+        </li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+
+.players {
+  margin-block-end: 1em;
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .cardList {
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    li:last-child {
+      margin-right: 0;
+    }
+
+    .card {
+      display: inline-block;
+      cursor: default;
+      padding: 1rem;
+      border: 1px solid rgba(0,0,0,.12);
+      border-radius: 4px;
+      color: mat-color(mat-palette($mat-indigo));
+    }
+
+    .card.enabled {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,1 +1,15 @@
-<p>game ready!</p>
+<div *ngIf="game !== undefined">
+  <app-cards [players]="game.players" [playerId]="playerId"></app-cards>
+
+  <mat-divider></mat-divider>
+
+  <h3>Game Board</h3>
+
+  <mat-divider></mat-divider>
+
+  <app-notes></app-notes>
+
+  <mat-divider></mat-divider>
+
+  <app-messages [messages]="game.messages"></app-messages>
+</div>

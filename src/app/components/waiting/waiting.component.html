@@ -3,9 +3,12 @@
 <div *ngIf="game !== undefined">
   <mat-list>
     <mat-list-item *ngFor="let player of game.players | keyvalue">
-      {{player.value.name}}, {{player.value.expertise}}<span *ngIf="playerId === player.value.id"> (you)</span>
+      <span [ngClass]="{ bold: (playerId === player.value.id) }">{{player.value.name}}, {{player.value.expertise}}</span>
     </mat-list-item>
   </mat-list>
 
   <button (click)="startGame()" color="primary" [disabled]="!submitEnabled" mat-raised-button>start game</button>
+
+  <mat-divider></mat-divider>
+  <app-messages [messages]="game.messages"></app-messages>
 </div>

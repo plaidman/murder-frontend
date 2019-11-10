@@ -4,7 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoModule } from 'ngx-socket-io';
 import { AppMaterialModule } from 'src/app/modules/app-material.module';
 import { AppRoutingModule } from 'src/app/modules/app-routing.module';
+import { CardsComponent } from '../game/cards/cards.component';
 import { GameComponent } from '../game/game.component';
+import { NotesComponent } from '../game/notes/notes.component';
+import { MessagesComponent } from '../messages/messages.component';
 import { WaitingComponent } from '../waiting/waiting.component';
 import { CharacterComponent } from './character.component';
 
@@ -18,6 +21,9 @@ describe('CharacterComponent', () => {
                 CharacterComponent,
                 WaitingComponent,
                 GameComponent,
+                MessagesComponent,
+                CardsComponent,
+                NotesComponent,
             ],
             imports: [
                 BrowserAnimationsModule,

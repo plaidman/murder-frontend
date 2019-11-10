@@ -13,7 +13,7 @@ import { GameUpdated } from 'src/app/services/socketModels';
 export class GameComponent implements OnInit, OnDestroy {
     private game: Game;
     private subscription: Subscription;
-    // private playerId: string;
+    public playerId: string;
 
     constructor(
         private router: Router,
@@ -35,7 +35,7 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
     private updateGame(gameUpdatedData: GameUpdated): void {
-        // this.playerId = localStorage.getItem('playerId');
+        this.playerId = localStorage.getItem('playerId');
         this.game = gameUpdatedData.game;
         console.log('game update', this.game);
 
