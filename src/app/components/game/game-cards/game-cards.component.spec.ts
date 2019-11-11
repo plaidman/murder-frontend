@@ -1,29 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from 'src/app/modules/app-material.module';
-import { NotesComponent } from './notes.component';
+import { GameCardsComponent } from './game-cards.component';
 
-describe('NotesComponent', () => {
-    let component: NotesComponent;
-    let fixture: ComponentFixture<NotesComponent>;
+describe('CardsComponent', () => {
+    let component: GameCardsComponent;
+    let fixture: ComponentFixture<GameCardsComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                NotesComponent,
+                GameCardsComponent,
             ],
             imports: [
                 AppMaterialModule,
-                BrowserAnimationsModule,
-                ReactiveFormsModule,
             ]
         })
     .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(NotesComponent);
+        fixture = TestBed.createComponent(GameCardsComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

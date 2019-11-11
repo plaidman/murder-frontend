@@ -5,9 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
-import { CardsComponent } from './components/game/cards/cards.component';
+import { GameCardsComponent } from './components/game/game-cards/game-cards.component';
+import { GameNotesComponent } from './components/game/game-notes/game-notes.component';
 import { GameComponent } from './components/game/game.component';
-import { NotesComponent } from './components/game/notes/notes.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { WaitingComponent } from './components/waiting/waiting.component';
@@ -31,8 +31,8 @@ const socketConfig: SocketIoConfig = {
         GameComponent,
         WaitingComponent,
         MessagesComponent,
-        CardsComponent,
-        NotesComponent,
+        GameCardsComponent,
+        GameNotesComponent,
     ],
     imports: [
         ReactiveFormsModule,

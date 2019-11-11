@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
-    selector: 'app-notes',
-    templateUrl: './notes.component.html',
-    styleUrls: ['./notes.component.scss']
+    selector: 'app-game-notes',
+    templateUrl: './game-notes.component.html',
+    styleUrls: ['./game-notes.component.scss']
 })
-export class NotesComponent {
+export class GameNotesComponent {
     public notes: FormControl;
     public saveTimeout: NodeJS.Timer;
 
