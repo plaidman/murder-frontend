@@ -1,14 +1,15 @@
-.mat-list-base {
-  .mat-list-item {
-    height: 30px;
+mat-card {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+mat-list {
+  mat-list-item {
+    height: 1.7rem;
     font-weight: lighter;
 
     .bold {
       font-weight: bold;
     }
   }
-}
-
-button {
-  margin: 1rem 0;
 }

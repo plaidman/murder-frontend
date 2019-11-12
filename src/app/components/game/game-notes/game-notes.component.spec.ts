@@ -18,8 +18,7 @@ describe('NotesComponent', () => {
                 BrowserAnimationsModule,
                 ReactiveFormsModule,
             ]
-        })
-    .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {

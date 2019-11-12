@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -11,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 @NgModule({
     exports: [
         MatButtonModule,
+        MatCardModule,
         MatDialogModule,
         MatDividerModule,
         MatExpansionModule,
@@ -21,6 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     ],
     imports: [
         MatButtonModule,
+        MatCardModule,
         MatDialogModule,
         MatDividerModule,
         MatExpansionModule,

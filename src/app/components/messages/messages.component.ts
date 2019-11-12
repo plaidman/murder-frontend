@@ -7,4 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class MessagesComponent {
     @Input() public messages: string[];
+
+    // todo flash or scroll when a new message happens
 }

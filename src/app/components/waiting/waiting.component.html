@@ -1,14 +1,19 @@
-<h3>Waiting for others...</h3>
-
 <div *ngIf="game !== undefined">
-  <mat-list>
-    <mat-list-item *ngFor="let player of game.players | keyvalue">
-      <span [ngClass]="{ bold: (playerId === player.value.id) }">{{player.value.name}}, {{player.value.expertise}}</span>
-    </mat-list-item>
-  </mat-list>
+  <mat-card class="waiting">
+    <mat-card-title>Waiting for others...</mat-card-title>
 
-  <button (click)="startGame()" color="primary" [disabled]="!submitEnabled" mat-raised-button>start game</button>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let player of game.players | keyvalue">
+          <span [ngClass]="{ bold: (playerId === player.value.id) }">{{player.value.name}}, {{player.value.expertise}}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
 
-  <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button (click)="startGame()" color="primary" [disabled]="!submitEnabled" mat-button>start game</button>
+    </mat-card-actions>
+  </mat-card>
+
   <app-messages [messages]="game.messages"></app-messages>
 </div>

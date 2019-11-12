@@ -9,7 +9,7 @@
 
       <ul class="cardList">
         <li *ngFor="let card of player.value.handCards">
-          <div [ngClass]="{'card': true, 'enabled': (playerId === player.value.id)}">
+          <div (click)="selectCard(card)" [ngClass]="{'card': true, 'enabled': (playerId === player.value.id)}">
             <mat-icon>{{(playerId === player.value.id) ? 'visibility' : 'visibility_off'}}</mat-icon>
           </div>
         </li>
@@ -17,3 +17,13 @@
     </mat-expansion-panel>
   </mat-accordion>
 </div>
+
+<mat-card class="selected-card" *ngIf="selectedCard !== undefined">
+  <mat-card-title>Selected Card</mat-card-title>
+  <mat-card-subtitle>{{selectedCard.type}}</mat-card-subtitle>
+
+  <mat-card-content>
+    <div><span class="label">description:</span> {{selectedCard.description}}</div>
+    <div><span class="label">expertise:</span> {{selectedCard.expertise}}</div>
+  </mat-card-content>
+</mat-card>

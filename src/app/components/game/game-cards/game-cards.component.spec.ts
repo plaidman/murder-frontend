@@ -14,8 +14,7 @@ describe('CardsComponent', () => {
             imports: [
                 AppMaterialModule,
             ]
-        })
-    .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {

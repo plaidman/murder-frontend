@@ -6,6 +6,7 @@ import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
 import { GameCardsComponent } from './components/game/game-cards/game-cards.component';
+import { GameCollectAccuseComponent } from './components/game/game-collect-accuse/game-collect-accuse.component';
 import { GameNotesComponent } from './components/game/game-notes/game-notes.component';
 import { GameComponent } from './components/game/game.component';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -33,6 +34,7 @@ const socketConfig: SocketIoConfig = {
         MessagesComponent,
         GameCardsComponent,
         GameNotesComponent,
+        GameCollectAccuseComponent,
     ],
     imports: [
         ReactiveFormsModule,

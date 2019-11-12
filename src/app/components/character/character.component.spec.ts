@@ -32,8 +32,7 @@ describe('CharacterComponent', () => {
                 AppMaterialModule,
                 ReactiveFormsModule,
             ],
-        })
-        .compileComponents();
+        }).compileComponents();
     }));
 
     beforeEach(() => {

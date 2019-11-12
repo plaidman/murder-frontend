@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Player } from 'src/app/services/gameModels';
+import { Card, Player } from 'src/app/services/gameModels';
 
 @Component({
     selector: 'app-game-cards',
@@ -7,6 +7,19 @@ import { Player } from 'src/app/services/gameModels';
     styleUrls: ['./game-cards.component.scss']
 })
 export class GameCardsComponent {
-    @Input() playerId: string;
-    @Input() players: Record<string, Player>;
+    @Input() public playerId: string;
+    @Input() public players: Record<string, Player>;
+    public selectedCard: Card;
+
+    public selectCard(card: Card) {
+        const yourCards = this.players[this.playerId].handCards;
+        console.log('click');
+
+        if (!yourCards.includes(card)) {
+            return;
+        }
+
+        console.log(card);
+        this.selectedCard = card;
+    }
 }

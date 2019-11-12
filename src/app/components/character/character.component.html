@@ -1,31 +1,50 @@
-<h3>Who are you?</h3>
+<h2>Who are you?</h2>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <p>Choose a character name and an expertise. For instance: 'geoffrey the pidgeon trainer'</p>
+  <mat-card>
+    <mat-card-title>Name and Expertise</mat-card-title>
 
-  <mat-form-field>
-    <input formControlName="name" matInput placeholder="name" />
-  </mat-form-field>
+    <mat-card-subtitle>ex: 'geoffrey the pidgeon trainer'</mat-card-subtitle>
 
-  <mat-form-field>
-    <input formControlName="expertise" matInput placeholder="expertise" />
-  </mat-form-field>
+    <mat-card-content>
+      <mat-form-field>
+        <input formControlName="name" matInput placeholder="name" />
+      </mat-form-field>
 
-  <p>Make up two murder weapons that are closely related to your expertise. For instance: 'feather tipped with poison'</p>
+      <mat-form-field>
+        <input formControlName="expertise" matInput placeholder="expertise" />
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
 
-  <div formArrayName="weapons" *ngFor="let item of form.get('weapons').controls; let i = index;">
-    <mat-form-field>
-      <input [formControlName]="i" matInput placeholder="weapon">
-    </mat-form-field>
-  </div>
+  <mat-card>
+    <mat-card-title>Murder Weapons</mat-card-title>
 
-  <p>Make up four pieces of evidence that relate to your expertise. Can be a motive or a found piece of evidence. For instance: 'found: pidgeon coreography sheet' or 'motive: Guy Fieri cooked a pidgeon on his show last night'</p>
+    <mat-card-subtitle>ex: 'feather tipped with poison'</mat-card-subtitle>
 
-  <div formArrayName="evidence" *ngFor="let item of form.get('evidence').controls; let i = index;">
-    <mat-form-field>
-      <input [formControlName]="i" matInput placeholder="evidence">
-    </mat-form-field>
-  </div>
+    <mat-card-content>
+      <div formArrayName="weapons" *ngFor="let item of form.get('weapons').controls; let i = index;">
+        <mat-form-field>
+          <input [formControlName]="i" matInput placeholder="weapon">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
 
-  <button mat-raised-button color="primary" type="submit">join game</button>
+  <mat-card>
+    <mat-card-title>Pieces of Evidence</mat-card-title>
+
+    <mat-card-subtitle>ex: 'found: pidgeon coreography sheet'</mat-card-subtitle>
+    <mat-card-subtitle>or: 'motive: Guy Fieri cooked a pidgeon on his show last night'</mat-card-subtitle>
+
+    <mat-card-content>
+      <div formArrayName="evidence" *ngFor="let item of form.get('evidence').controls; let i = index;">
+        <mat-form-field>
+          <input [formControlName]="i" matInput placeholder="evidence">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <button mat-button color="primary" type="submit">join game</button>
 </form>
