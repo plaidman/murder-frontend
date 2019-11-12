@@ -1,15 +1,9 @@
 <div *ngIf="game !== undefined">
   <app-game-cards [players]="game.players" [playerId]="playerId"></app-game-cards>
 
-  <mat-divider></mat-divider>
-
   <h3>Game Board</h3>
 
-  <mat-divider></mat-divider>
-
   <app-game-notes></app-game-notes>
-
-  <mat-divider></mat-divider>
 
   <app-messages [messages]="game.messages"></app-messages>
 </div>

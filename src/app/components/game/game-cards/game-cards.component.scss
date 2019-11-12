@@ -1,10 +1,30 @@
 @import '~@angular/material/theming';
 
 .players {
-  margin-block-end: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 
   .bold {
     font-weight: bold;
+  }
+
+  mat-card {
+    padding: .7rem;
+
+    mat-card-title {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+
+  mat-card:not(:last-of-type) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  mat-card:not(:first-of-type) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   .cardList {
@@ -22,10 +42,16 @@
     .card {
       display: inline-block;
       cursor: default;
-      padding: 1rem;
+      padding: .6rem;
       border: 1px solid rgba(0,0,0,.12);
       border-radius: 4px;
       color: mat-color(mat-palette($mat-indigo));
+
+      mat-icon {
+        font-size: 1.2rem;
+        width: 1rem;
+        height: 1rem;
+      }
     }
 
     .card.enabled {
@@ -35,7 +61,7 @@
 }
 
 .selected-card {
-  margin-block-end: 1em;
+  margin-top: 1em;
 
   mat-card-title {
     font-size: 1.17rem;

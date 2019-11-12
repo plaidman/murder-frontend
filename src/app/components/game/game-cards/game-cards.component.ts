@@ -11,6 +11,8 @@ export class GameCardsComponent {
     @Input() public players: Record<string, Player>;
     public selectedCard: Card;
 
+    // todo make visible if card is conclusive evidence
+
     public selectCard(card: Card) {
         const yourCards = this.players[this.playerId].handCards;
         console.log('click');
