@@ -1,64 +1,65 @@
 @import '~@angular/material/theming';
 
-.players {
-  margin-top: 1em;
-  margin-bottom: 1em;
+.container {
+  padding: .7rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
-  mat-card {
-    padding: .7rem;
+  mat-card-title {
+    font-size: 1.15rem;
   }
 
-  mat-divider {
-    margin-top: .7rem;
-    margin-bottom: .7rem;
-    position: relative;
-    left: -16px;
-    width: calc(100% + 32px);
-  }
-
-  .player {
-    display: flex;
-    align-items: center;
+  mat-card-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+    row-gap: 1rem;
 
     .label {
       margin-inline-end: .7rem;
+      align-self: center;
 
       .name {
-        font-weight: normal;
-        font-size: 1.1rem;
+        font-size: .9rem;
       }
 
       .expertise {
         color: grey;
-        font-size: .9rem;
+        font-size: .8rem;
       }
     }
 
-    .card {
-      margin-inline-end: .7rem;
-      cursor: default;
-      padding: .6rem;
-      border: 1px solid rgba(0,0,0,.12);
-      border-radius: 4px;
-      color: mat-color(mat-palette($mat-indigo));
+    .cards {
+      display: flex;
+      align-items: center;
 
-      mat-icon {
-        font-size: 1.2rem;
-        width: 1rem;
-        height: 1rem;
+      .card {
+        margin-inline-end: .7rem;
+        cursor: default;
+        padding: .6rem;
+        border: 1px solid rgba(0,0,0,.12);
+        border-radius: 4px;
+        color: mat-color(mat-palette($mat-indigo));
+
+        mat-icon {
+          font-size: 1.2rem;
+          width: 1rem;
+          height: 1rem;
+        }
       }
-    }
 
-    .card.enabled {
-      cursor: pointer;
+      .card.enabled {
+        cursor: pointer;
+      }
     }
   }
 }
 
-.selected-card {
+.selectedCard {
   margin-top: 1em;
 
   mat-card-title {
-    font-size: 1.17rem;
+    font-size: 1.15rem;
+    margin-bottom: .25rem;
   }
 }

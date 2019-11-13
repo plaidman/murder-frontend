@@ -1,6 +1,6 @@
 .messages {
   mat-card-title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
 
   mat-card-content {
@@ -11,7 +11,8 @@
       padding-top: 0;
 
       mat-list-item {
-        height: 1.7rem;
+        height: 1.5rem;
+        font-size: .9rem;
       }
 
       mat-list-item:hover {

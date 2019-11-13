@@ -8,12 +8,12 @@ import { FormBuilder, FormControl } from '@angular/forms';
 })
 export class GameNotesComponent {
     public notes: FormControl;
-    public saveTimeout: NodeJS.Timer;
+    public saveTimeout: any; // any because for some reason compiled angular can't find NodeJs.Timer
 
     constructor(
         formBuilder: FormBuilder,
     ) {
-        this.notes = formBuilder.control('');
+        this.notes = formBuilder.control(localStorage.getItem('notes'));
     }
 
     public input() {
