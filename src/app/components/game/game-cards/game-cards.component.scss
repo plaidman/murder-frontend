@@ -4,43 +4,38 @@
   margin-top: 1em;
   margin-bottom: 1em;
 
-  .bold {
-    font-weight: bold;
-  }
-
   mat-card {
     padding: .7rem;
-
-    mat-card-title {
-      font-size: 1rem;
-      font-weight: normal;
-    }
   }
 
-  mat-card:not(:last-of-type) {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  mat-divider {
+    margin-top: .7rem;
+    margin-bottom: .7rem;
+    position: relative;
+    left: -16px;
+    width: calc(100% + 32px);
   }
 
-  mat-card:not(:first-of-type) {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+  .player {
+    display: flex;
+    align-items: center;
 
-  .cardList {
-    list-style-type: none;
+    .label {
+      margin-inline-end: .7rem;
 
-    li {
-      display: inline-block;
-      margin-right: 1rem;
-    }
+      .name {
+        font-weight: normal;
+        font-size: 1.1rem;
+      }
 
-    li:last-child {
-      margin-right: 0;
+      .expertise {
+        color: grey;
+        font-size: .9rem;
+      }
     }
 
     .card {
-      display: inline-block;
+      margin-inline-end: .7rem;
       cursor: default;
       padding: .6rem;
       border: 1px solid rgba(0,0,0,.12);

@@ -8,19 +8,24 @@
   </mat-card-content>
 </mat-card>
 
-<div class="players">
-  <mat-card *ngFor="let player of players | keyvalue">
-    <mat-card-title>{{player.value.name}}</mat-card-title>
-    <mat-card-subtitle>{{player.value.expertise}}</mat-card-subtitle>
-    <mat-card-content>
-      <ul class="cardList">
-        <li *ngFor="let card of player.value.handCards">
-          <div (click)="selectCard(card)" [ngClass]="{'card': true, 'enabled': (playerId === player.value.id)}">
-            <mat-icon>{{(playerId === player.value.id) ? 'visibility' : 'visibility_off'}}</mat-icon>
-          </div>
-        </li>
-      </ul>
-    </mat-card-content>
-  </mat-card>
-</div>
+<mat-card class="players">
+  <mat-card-content>
+    <div *ngFor="let player of players | keyvalue; let last = last;">
+      <div class="player">
+        <div class="label">
+          <div class="name">{{player.value.name}}</div>
+          <div class="expertise">{{player.value.expertise}}</div>
+        </div>
 
+        <div (click)="selectCard(card)"
+            [ngClass]="{'card': true, 'enabled': (playerId === player.value.id)}"
+            *ngFor="let card of player.value.handCards"
+        >
+          <mat-icon>{{(playerId === player.value.id) ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </div>
+      </div>
+
+      <mat-divider *ngIf="!last"></mat-divider>
+    </div>
+  </mat-card-content>
+</mat-card>
