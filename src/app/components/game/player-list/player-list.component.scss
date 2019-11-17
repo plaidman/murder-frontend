@@ -1,22 +1,22 @@
 @import '~@angular/material/theming';
 
-.container {
-  padding: .7rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.playerList {
+  border: 1px solid rgba(0,0,0,.06);
 
   mat-card-title {
     font-size: 1.15rem;
+    margin-bottom: 1rem;
   }
 
   mat-card-content {
+    overflow: scroll;
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: auto;
     row-gap: 1rem;
 
     .label {
-      margin-inline-end: .7rem;
+      margin-right: .7rem;
       align-self: center;
 
       .name {
@@ -34,32 +34,18 @@
       align-items: center;
 
       .card {
-        margin-inline-end: .7rem;
-        cursor: default;
+        margin-right: .7rem;
         padding: .6rem;
         border: 1px solid rgba(0,0,0,.12);
         border-radius: 4px;
         color: mat-color(mat-palette($mat-indigo));
-
-        mat-icon {
-          font-size: 1.2rem;
-          width: 1rem;
-          height: 1rem;
-        }
-      }
-
-      .card.enabled {
+        width: .45rem;
         cursor: pointer;
       }
+
+      .selected {
+        background-color: mat-color(mat-palette($mat-indigo), lighter);
+      }
     }
-  }
-}
-
-.selectedCard {
-  margin-top: 1em;
-
-  mat-card-title {
-    font-size: 1.15rem;
-    margin-bottom: .25rem;
   }
 }

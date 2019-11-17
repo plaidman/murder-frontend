@@ -1,9 +1,19 @@
 <div *ngIf="game !== undefined">
-  <app-game-cards [players]="game.players" [playerId]="playerId"></app-game-cards>
+  <div class="gameBoard">
+    <div class="left">
+      <app-player-list [game]="game" [playerId]="playerId" [selectedCard]="selectedCard"
+        (selectedCardEvent)="selectCard($event)"></app-player-list>
 
-  <h3>Game Board</h3>
+      <app-notes></app-notes>
 
-  <app-game-notes></app-game-notes>
+      <app-messages [messages]="game.messages"></app-messages>
+    </div>
+    <div class="right">
+      <app-selected-card [card]="selectedCard" [player]="game.players[playerId]"
+        (dismissEvent)="dismissSelectedCard()" *ngIf="selectedCard !== undefined"></app-selected-card>
 
-  <app-messages [messages]="game.messages"></app-messages>
+      <app-collect [game]="game" [playerId]="playerId" *ngIf="game.state === 'collect'"></app-collect>
+      <app-accuse [game]="game" [playerId]="playerId" *ngIf="game.state === 'accuse'"></app-accuse>
+    </div>
+  </div>
 </div>

@@ -5,10 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
-import { GameCardsComponent } from './components/game/game-cards/game-cards.component';
-import { GameCollectAccuseComponent } from './components/game/game-collect-accuse/game-collect-accuse.component';
-import { GameNotesComponent } from './components/game/game-notes/game-notes.component';
+import { AccuseComponent } from './components/game/accuse/accuse.component';
+import { CollectComponent } from './components/game/collect/collect.component';
+import { EvidenceCardComponent } from './components/game/evidence-card/evidence-card.component';
 import { GameComponent } from './components/game/game.component';
+import { GameNotesComponent } from './components/game/notes/notes.component';
+import { PlayerListComponent } from './components/game/player-list/player-list.component';
+import { RebuttalComponent } from './components/game/rebuttal/rebuttal.component';
+import { SelectedCardComponent } from './components/game/selected-card/selected-card.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { WaitingComponent } from './components/waiting/waiting.component';
@@ -17,11 +21,6 @@ import { AppRoutingModule } from './modules/app-routing.module';
 
 const socketConfig: SocketIoConfig = {
     url: 'http://localhost:8033',
-    options: {
-        query: {
-            playerId: localStorage.getItem('playerId'),
-        }
-    }
 };
 
 @NgModule({
@@ -32,9 +31,13 @@ const socketConfig: SocketIoConfig = {
         GameComponent,
         WaitingComponent,
         MessagesComponent,
-        GameCardsComponent,
+        PlayerListComponent,
         GameNotesComponent,
-        GameCollectAccuseComponent,
+        SelectedCardComponent,
+        EvidenceCardComponent,
+        CollectComponent,
+        AccuseComponent,
+        RebuttalComponent,
     ],
     imports: [
         ReactiveFormsModule,

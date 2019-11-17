@@ -1,6 +1,7 @@
 export enum CardType {
     WEAPON = 'weapon',
     EVIDENCE = 'evidence',
+    HIDDEN = 'hidden',
 }
 
 export enum GameState {
@@ -15,17 +16,18 @@ export enum GameState {
     EXPERT = 'expert', // wait for expert to choose conclusive or inconclusive
     // then goes back to collect
     REVELATION = 'revelation', // at any time, someone can make a thrilling revelation
-    REVELATION_SWAP = 'revelationSwap', // if revelation is wrong, accused player can swap one card
+    REVELATION_SWAP = 'revelationSwap', // if revelation is wrong, accusee can swap one card
     OVER = 'over', // game is finished
 }
 
 export interface Game {
+    gmPlayerId: string;
     players: Record<string, Player>;
     tableCards: Card[];
     state: GameState;
     accusorIds: string[];
     currentAccusor: number;
-    accusedId: string;
+    accuseeId: string;
     messages: string[];
 }
 
@@ -42,6 +44,7 @@ export interface Card {
     type: CardType;
     expertise: string;
     expertPlayerId: string;
-    accusedPlayerId: string;
+    accuseeName: string;
+    accuseeId: string;
     isConclusive: boolean; // if true, permanently face up and can't be traded
 }

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GameEngineService } from 'src/app/services/game-engine.service';
-import { Game, GameState } from 'src/app/services/gameModels';
+import { Card, Game, GameState } from 'src/app/services/gameModels';
 import { GameUpdated } from 'src/app/services/socketModels';
 
 @Component({
@@ -14,6 +14,7 @@ export class GameComponent implements OnInit, OnDestroy {
     private game: Game;
     private subscription: Subscription;
     public playerId: string;
+    public selectedCard: Card;
 
     constructor(
         private router: Router,
@@ -42,5 +43,18 @@ export class GameComponent implements OnInit, OnDestroy {
         if ([GameState.GATHER, GameState.SHUFFLE].includes(this.game.state)) {
             this.router.navigateByUrl('character');
         }
+    }
+
+    public selectCard(card: Card) {
+        if (this.selectedCard === card) {
+            this.selectedCard = undefined;
+            return;
+        }
+
+        this.selectedCard = card;
+    }
+
+    public dismissSelectedCard() {
+        this.selectedCard = undefined;
     }
 }

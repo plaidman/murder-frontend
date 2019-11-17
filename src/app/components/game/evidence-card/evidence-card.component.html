@@ -1,0 +1,15 @@
+<mat-card class="evidenceCard" *ngIf="card !== undefined">
+  <mat-card-title>{{card.description}}</mat-card-title>
+  <mat-card-subtitle>{{card.type}}</mat-card-subtitle>
+
+  <mat-card-content *ngIf="card.accuseeName.length > 0">
+    <div *ngIf="card.expertise.length > 0">
+      <span class="expertise">expertise:</span>
+      {{card.expertise}}
+    </div>
+    <div *ngIf="card.accuseeName.length > 0">
+      <span class="accusee">accusee:</span>
+      {{card.accuseeName}}
+    </div>
+  </mat-card-content>
+</mat-card>

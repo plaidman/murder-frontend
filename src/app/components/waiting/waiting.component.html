@@ -1,13 +1,12 @@
 <div *ngIf="game !== undefined">
-  <mat-card>
+  <mat-card class="waiting">
     <mat-card-title>Waiting for others...</mat-card-title>
 
     <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let player of game.players | keyvalue">
-          <span [ngClass]="{ bold: (playerId === player.value.id) }">{{player.value.name}}, {{player.value.expertise}}</span>
-        </mat-list-item>
-      </mat-list>
+      <div class="label" *ngFor="let player of game.players | keyvalue">
+        <div class="name">{{player.value.name}}</div>
+        <div class="expertise">{{player.value.expertise}}</div>
+      </div>
     </mat-card-content>
 
     <mat-card-actions>

@@ -1,0 +1,11 @@
+<mat-card class="collect">
+  <mat-card-title>Gathering Evidence</mat-card-title>
+
+  <mat-card-content>
+    <app-evidence-card [card]="collectedCard"></app-evidence-card>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="playerId === game.gmPlayerId">
+    <button mat-button color="primary" (click)="startAccusation()">start accusation</button>
+  </mat-card-actions>
+</mat-card>

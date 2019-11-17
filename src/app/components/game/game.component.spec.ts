@@ -6,9 +6,9 @@ import { AppRoutingModule } from 'src/app/modules/app-routing.module';
 import { CharacterComponent } from '../character/character.component';
 import { MessagesComponent } from '../messages/messages.component';
 import { WaitingComponent } from '../waiting/waiting.component';
-import { GameCardsComponent } from './game-cards/game-cards.component';
-import { GameNotesComponent } from './game-notes/game-notes.component';
 import { GameComponent } from './game.component';
+import { GameNotesComponent } from './notes/notes.component';
+import { PlayerListComponent } from './player-list/player-list.component';
 
 describe('GameComponent', () => {
     let component: GameComponent;
@@ -22,7 +22,7 @@ describe('GameComponent', () => {
                 WaitingComponent,
                 MessagesComponent,
                 GameNotesComponent,
-                GameCardsComponent,
+                PlayerListComponent,
             ],
             imports: [
                 AppMaterialModule,

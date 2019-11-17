@@ -1,0 +1,20 @@
+<mat-card class="playerList">
+  <mat-card-title>Cards</mat-card-title>
+  <mat-card-content>
+    <ng-container *ngFor="let accusorPlayerId of game.accusorIds; let last = last;">
+      <div class="label">
+        <div class="name">{{game.players[accusorPlayerId].name}}</div>
+        <div class="expertise">{{game.players[accusorPlayerId].expertise}}</div>
+      </div>
+
+      <div class="cards">
+        <div (click)="selectCard(card)"
+          [ngClass]="{ card: true, selected: card === selectedCard }"
+          *ngFor="let card of game.players[accusorPlayerId].handCards"
+        >
+          {{isVisible(card) ? 'o' : 'x'}}
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

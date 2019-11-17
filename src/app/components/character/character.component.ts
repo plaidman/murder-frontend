@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GameEngineService } from 'src/app/services/game-engine.service';
 import { GameState } from 'src/app/services/gameModels';
-import { GameUpdated, PlayerAdded } from 'src/app/services/socketModels';
+import { GameUpdated, PlayerAdded, SetupPlayer } from 'src/app/services/socketModels';
 
 @Component({
     selector: 'app-character',
@@ -24,21 +24,22 @@ export class CharacterComponent implements OnInit, OnDestroy {
 
     public ngOnInit() {
         // todo
-        //   pull values from localstorage
         //   offer some prebuilt characters
 
+        const character: SetupPlayer = this.unpackCharacter();
+
         this.form = this.formBuilder.group({
-            name: 'name',
-            expertise: 'exp',
+            name: character.name,
+            expertise: character.expertise,
             weapons: this.formBuilder.array([
-                this.formBuilder.control('w1'),
-                this.formBuilder.control('w2'),
+                this.formBuilder.control(character.weapons[0]),
+                this.formBuilder.control(character.weapons[1]),
             ]),
             evidence: this.formBuilder.array([
-                this.formBuilder.control('e1'),
-                this.formBuilder.control('e2'),
-                this.formBuilder.control('e3'),
-                this.formBuilder.control('e4'),
+                this.formBuilder.control(character.evidence[0]),
+                this.formBuilder.control(character.evidence[1]),
+                this.formBuilder.control(character.evidence[2]),
+                this.formBuilder.control(character.evidence[3]),
             ])
         });
 
@@ -69,7 +70,8 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
 
     public onSubmit(): void {
-        // todo save values to local storage
+        localStorage.setItem('character', JSON.stringify(this.form.value));
+
         this.addSub = this.gameEngine.setupPlayer(
             this.form.value,
             this.playerAdded.bind(this),
@@ -79,5 +81,20 @@ export class CharacterComponent implements OnInit, OnDestroy {
     private playerAdded(playerAddedData: PlayerAdded): void {
         localStorage.setItem('playerId', playerAddedData.playerId);
         this.router.navigateByUrl('waiting');
+    }
+
+    private unpackCharacter(): SetupPlayer {
+        const encodedChar = localStorage.getItem('character');
+
+        if (encodedChar === null) {
+            return {
+                name: '',
+                expertise: '',
+                evidence: ['', '', '', ''],
+                weapons: ['', ''],
+            };
+        }
+
+        return JSON.parse(encodedChar);
     }
 }

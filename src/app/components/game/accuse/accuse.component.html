@@ -1,0 +1,11 @@
+<mat-card class="accuse">
+  <mat-card-title>Was It {{game.players[game.accuseeId].name}}??</mat-card-title>
+
+  <mat-card-content>
+    <app-evidence-card [card]="accusationCard"></app-evidence-card>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="playerId === accusorId">
+    <button mat-button color="primary" (click)="startAccusation()">hear rebuttal</button>
+  </mat-card-actions>
+</mat-card>

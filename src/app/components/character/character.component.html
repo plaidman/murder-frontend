@@ -3,7 +3,6 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-card>
     <mat-card-title>Name and Expertise</mat-card-title>
-
     <mat-card-subtitle>ex: 'geoffrey the pidgeon trainer'</mat-card-subtitle>
 
     <mat-card-content>
@@ -19,8 +18,7 @@
 
   <mat-card>
     <mat-card-title>Murder Weapons</mat-card-title>
-
-    <mat-card-subtitle>ex: 'feather tipped with poison'</mat-card-subtitle>
+    <mat-card-subtitle>ex: 'feather dipped in poison'</mat-card-subtitle>
 
     <mat-card-content>
       <div formArrayName="weapons" *ngFor="let item of form.get('weapons').controls; let i = index;">
@@ -33,7 +31,6 @@
 
   <mat-card>
     <mat-card-title>Pieces of Evidence</mat-card-title>
-
     <mat-card-subtitle class="two-line">ex: 'found: pidgeon coreography sheet'</mat-card-subtitle>
     <mat-card-subtitle>or: 'motive: Guy Fieri cooked a pidgeon on his show last night'</mat-card-subtitle>
 

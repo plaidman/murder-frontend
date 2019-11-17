@@ -1,0 +1,44 @@
+.gameBoard {
+  display: flex;
+
+  .left {
+    width: 30rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+
+    app-player-list {
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    app-notes {
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    app-messages {
+      margin-bottom: 1rem;
+      display: block;
+    }
+  }
+
+  .right {
+    width: calc(100% - 31rem);
+    margin-top: 1rem;
+
+    app-selected-card {
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    app-collect {
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    app-accuse {
+      margin-bottom: 1rem;
+      display: block;
+    }
+  }
+}

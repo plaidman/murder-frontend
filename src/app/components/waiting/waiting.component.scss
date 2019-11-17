@@ -1,20 +1,43 @@
-mat-card {
+.waiting {
   margin-top: 1rem;
   margin-bottom: 3rem;
+  border: 1px solid rgba(0,0,0,.06);
 
   mat-card-title {
     font-size: 1.15rem;
   }
-}
 
-mat-list {
-  mat-list-item {
-    font-size: .9rem;
-    height: 1.7rem;
-    font-weight: lighter;
+  mat-card-content {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
 
-    .bold {
-      font-weight: bold;
+    .label {
+      border: 1px solid rgba(0,0,0,.12);
+      padding: .7rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+      width: fit-content;
+      margin-right: .7rem;
+
+      .name {
+        font-size: 1rem;
+      }
+
+      .expertise {
+        color: grey;
+        font-size: .8rem;
+      }
+    }
+
+    mat-card-actions {
+      padding-top: 0;
     }
   }
+}
+
+app-messages {
+  margin-bottom: 1rem;
+  display: block;
 }

@@ -38,6 +38,25 @@ export class GameEngineService {
         this.socket.emit('startGame', { playerId });
     }
 
+    public startAccusation(): void {
+        this.socket.emit('startAccusation');
+    }
+
+    public passTheBlame(): void {
+        console.log('pass the blame');
+        this.socket.emit('passTheBlame');
+    }
+
+    public explainTheEvidence(): void {
+        console.log('explain the evidence');
+        this.socket.emit('explainTheEvidence');
+    }
+
+    public startRebuttal(): void {
+        console.log('start rebuttal');
+        this.socket.emit('startRebuttal');
+    }
+
     public requestGame(): void {
         this.socket.emit('requestGame');
     }

@@ -1,0 +1,11 @@
+.evidenceCard {
+  width: fit-content;
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: none;
+
+  mat-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: .25rem;
+  }
+}
