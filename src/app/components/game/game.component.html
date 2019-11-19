@@ -9,11 +9,14 @@
       <app-messages [messages]="game.messages"></app-messages>
     </div>
     <div class="right">
-      <app-selected-card [card]="selectedCard" [player]="game.players[playerId]"
+      <app-selected-card [game]="game" [playerId]="playerId" [card]="selectedCard"
         (dismissEvent)="dismissSelectedCard()" *ngIf="selectedCard !== undefined"></app-selected-card>
 
       <app-collect [game]="game" [playerId]="playerId" *ngIf="game.state === 'collect'"></app-collect>
       <app-accuse [game]="game" [playerId]="playerId" *ngIf="game.state === 'accuse'"></app-accuse>
+      <app-rebuttal [game]="game" [playerId]="playerId" *ngIf="game.state === 'rebuttal'"></app-rebuttal>
+      <app-pass-blame [game]="game" [playerId]="playerId" *ngIf="game.state === 'passBlame'"></app-pass-blame>
+      <!-- <app-explain [game]="game" [playerId]="playerId" *ngIf="game.state === 'explain'"></app-explain> -->
     </div>
   </div>
 </div>

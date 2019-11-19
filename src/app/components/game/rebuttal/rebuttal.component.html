@@ -1,5 +1,14 @@
 <mat-card class="rebuttal">
   <mat-card-title>No It Was Not {{game.players[game.accuseeId].name}}!!</mat-card-title>
+  <mat-card-subtitle class="twoLine" *ngIf="playerId === game.accuseeId">
+    Pass the blame to swap the accusee with another.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId === game.accuseeId">
+    Explain the evidence to keep yourself as the accusee.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId !== game.accuseeId">
+    Listen to {{game.players[game.accuseeId].name}} explain why it absolutely wasn't them, probably.
+  </mat-card-subtitle>
 
   <mat-card-content>
     <app-evidence-card [card]="accusationCard"></app-evidence-card>

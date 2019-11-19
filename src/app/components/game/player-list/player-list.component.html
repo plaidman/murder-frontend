@@ -9,7 +9,7 @@
 
       <div class="cards">
         <div (click)="selectCard(card)"
-          [ngClass]="{ card: true, selected: card === selectedCard }"
+          [ngClass]="{ card: true, selected: isSelected(card) }"
           *ngFor="let card of game.players[accusorPlayerId].handCards"
         >
           {{isVisible(card) ? 'o' : 'x'}}

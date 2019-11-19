@@ -1,6 +1,7 @@
 <div *ngIf="game !== undefined">
   <mat-card class="waiting">
     <mat-card-title>Waiting for others...</mat-card-title>
+    <mat-card-subtitle>Whoever clicks start will be the game leader.</mat-card-subtitle>
 
     <mat-card-content>
       <div class="label" *ngFor="let player of game.players | keyvalue">

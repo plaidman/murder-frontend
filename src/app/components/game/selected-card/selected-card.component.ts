@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Card, CardType, Player } from 'src/app/services/gameModels';
+import { Card, CardType, Game } from 'src/app/services/gameModels';
 
 const hiddenCard: Card = {
+    id: '',
     accuseeId: '',
     accuseeName: '',
     description: '<card not visible>',
@@ -17,10 +18,19 @@ const hiddenCard: Card = {
     styleUrls: ['./selected-card.component.scss']
 })
 export class SelectedCardComponent {
-    private processedCard: Card;
-    @Input() public player: Player;
-    public isCardVisible: boolean;
+    @Input() public playerId: string;
     @Output() public dismissEvent = new EventEmitter();
+    public processedGame: Game;
+    public processedCard: Card;
+    public isCardVisible: boolean;
+
+    @Input() set game(game: Game) {
+        this.processedGame = game;
+    }
+
+    get game() {
+        return this.processedGame;
+    }
 
     @Input() set card(card: Card) {
         if (card === undefined) {
@@ -28,10 +38,11 @@ export class SelectedCardComponent {
             return;
         }
 
+        const player = this.game.players[this.playerId];
+
         this.isCardVisible = false;
         this.processedCard = hiddenCard;
-
-        if (this.player.handCards.includes(card) || card.isConclusive) {
+        if (player.handCards.includes(card) || card.isConclusive) {
             this.isCardVisible = true;
             this.processedCard = card;
         }

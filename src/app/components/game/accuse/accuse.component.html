@@ -1,11 +1,17 @@
 <mat-card class="accuse">
   <mat-card-title>Was It {{game.players[game.accuseeId].name}}??</mat-card-title>
+  <mat-card-subtitle *ngIf="playerId === accusorId">
+    Explain why your piece of evidence proves {{game.players[game.accuseeId].name}} killed Guy Fieri.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId !== accusorId">
+    Listen to {{game.players[game.accusorIds[game.currentAccusor]].name}} explain their evidence.
+  </mat-card-subtitle>
 
   <mat-card-content>
     <app-evidence-card [card]="accusationCard"></app-evidence-card>
   </mat-card-content>
 
   <mat-card-actions *ngIf="playerId === accusorId">
-    <button mat-button color="primary" (click)="startAccusation()">hear rebuttal</button>
+    <button mat-button color="primary" (click)="startRebuttal()">hear rebuttal</button>
   </mat-card-actions>
 </mat-card>

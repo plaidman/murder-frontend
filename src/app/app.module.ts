@@ -8,8 +8,10 @@ import { CharacterComponent } from './components/character/character.component';
 import { AccuseComponent } from './components/game/accuse/accuse.component';
 import { CollectComponent } from './components/game/collect/collect.component';
 import { EvidenceCardComponent } from './components/game/evidence-card/evidence-card.component';
+import { ExplainComponent } from './components/game/explain/explain.component';
 import { GameComponent } from './components/game/game.component';
 import { GameNotesComponent } from './components/game/notes/notes.component';
+import { PassBlameComponent } from './components/game/pass-blame/pass-blame.component';
 import { PlayerListComponent } from './components/game/player-list/player-list.component';
 import { RebuttalComponent } from './components/game/rebuttal/rebuttal.component';
 import { SelectedCardComponent } from './components/game/selected-card/selected-card.component';
@@ -38,6 +40,8 @@ const socketConfig: SocketIoConfig = {
         CollectComponent,
         AccuseComponent,
         RebuttalComponent,
+        PassBlameComponent,
+        ExplainComponent,
     ],
     imports: [
         ReactiveFormsModule,

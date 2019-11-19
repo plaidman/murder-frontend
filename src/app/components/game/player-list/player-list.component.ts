@@ -12,17 +12,28 @@ export class PlayerListComponent {
     @Input() public selectedCard: Card;
     @Output() public selectedCardEvent = new EventEmitter<Card>();
 
-    // todo make visible if card is conclusive evidence
-
     public selectCard(card: Card): void {
         this.selectedCardEvent.emit(card);
     }
 
     public isVisible(card: Card): boolean {
-        if (this.game.players[this.playerId].handCards.includes(card)) {
+        const player = this.game.players[this.playerId];
+        if (player === undefined) {
+            return false;
+        }
+
+        if (player.handCards.includes(card)) {
             return true;
         }
 
         return card.isConclusive;
+    }
+
+    public isSelected(card: Card) {
+        if (this.selectedCard === undefined) {
+            return false;
+        }
+
+        return card.id === this.selectedCard.id;
     }
 }

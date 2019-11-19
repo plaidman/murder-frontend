@@ -17,6 +17,13 @@ export class CollectComponent implements OnChanges {
     ) {}
 
     public ngOnChanges() {
+        const player = this.game.players[this.playerId];
+
+        if (player === undefined) {
+            this.collectedCard = undefined;
+            return;
+        }
+
         const cards = this.game.players[this.playerId].handCards;
         this.collectedCard = cards[cards.length - 1];
     }
