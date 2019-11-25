@@ -2,11 +2,12 @@
   <mat-card-title>Selected Evidence Card</mat-card-title>
 
   <mat-card-content>
-    <app-evidence-card [card]="processedCard"></app-evidence-card>
+    <app-evidence-card [card]="displayedCard"></app-evidence-card>
   </mat-card-content>
 
   <mat-card-actions>
-    <button color="primary" mat-button>select</button>
+    <button *ngIf="game.state === 'passBlame' && playerId === game.accuseeId"
+      (click)="passBlame()" color="primary" mat-button>select</button>
     <button (click)="dismiss()" color="primary" mat-button>dismiss</button>
   </mat-card-actions>
 </mat-card>

@@ -1,1 +1,17 @@
-<p>explain works!</p>
+<mat-card class="explainEvidence">
+  <mat-card-title>No It Was Not {{game.players[game.accuseeId].name}}!!</mat-card-title>
+  <mat-card-subtitle *ngIf="playerId === game.accuseeId">
+    Explain why this evidence is misleading or not applicable to you.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId !== game.accuseeId">
+    Listen to {{game.players[game.accuseeId].name}} explain why it absolutely wasn't them, probably.
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <app-evidence-card [card]="accusationCard"></app-evidence-card>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="playerId === game.accuseeId">
+    <button mat-button color="primary" (click)="accuserPeek()">accuser peek</button>
+  </mat-card-actions>
+</mat-card>

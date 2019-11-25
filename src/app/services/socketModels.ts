@@ -19,6 +19,10 @@ export interface SetupPlayer {
     evidence: string[];
 }
 
+export interface ExplainEvidence {
+    cardId?: string;
+}
+
 export interface StartGame {
     // from client
     playerId: string;

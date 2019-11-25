@@ -17,13 +17,13 @@ export class RebuttalComponent implements OnChanges {
     ) {}
 
     public ngOnChanges() {
-        const accusorId = this.game.accusorIds[this.game.currentAccusor];
-        const accusorCards = this.game.players[accusorId].handCards;
-        this.accusationCard = accusorCards[accusorCards.length - 1];
+        const accuserId = this.game.accuserIds[this.game.currentAccuser];
+        const accuserCards = this.game.players[accuserId].handCards;
+        this.accusationCard = accuserCards[accuserCards.length - 1];
     }
 
     public explainTheEvidence() {
-        this.gameService.explainTheEvidence();
+        this.gameService.explainTheEvidence({ cardId: undefined });
     }
 
     public passTheBlame() {

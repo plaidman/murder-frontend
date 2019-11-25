@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Observable, Subscription } from 'rxjs';
-import { GameUpdated, PlayerAdded, SetupPlayer } from './socketModels';
+import { ExplainEvidence, GameUpdated, PlayerAdded, SetupPlayer } from './socketModels';
 
 @Injectable({
     providedIn: 'root',
@@ -50,8 +50,8 @@ export class GameEngineService {
         this.socket.emit('passTheBlame');
     }
 
-    public explainTheEvidence(): void {
-        this.socket.emit('explainTheEvidence');
+    public explainTheEvidence(formData: ExplainEvidence): void {
+        this.socket.emit('explainTheEvidence', formData);
     }
 
     public requestGame(): void {
