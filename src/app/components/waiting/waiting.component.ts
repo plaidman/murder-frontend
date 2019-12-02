@@ -46,7 +46,6 @@ export class WaitingComponent implements OnInit, OnDestroy {
     private updateGame(gameUpdatedData: GameUpdated): void {
         this.playerId = localStorage.getItem('playerId');
         this.game = gameUpdatedData.game;
-        console.log('game update', this.game);
 
         if (!Object.keys(this.game.players).includes(this.playerId)) {
             this.router.navigateByUrl('character');
@@ -59,5 +58,7 @@ export class WaitingComponent implements OnInit, OnDestroy {
         if (![GameState.GATHER, GameState.SHUFFLE].includes(this.game.state)) {
             this.router.navigateByUrl('game');
         }
+
+        console.log('game update', this.game);
     }
 }

@@ -61,11 +61,11 @@ export class CharacterComponent implements OnInit, OnDestroy {
     }
 
     private updateGame(gameUpdatedData: GameUpdated): void {
-        console.log('game update', gameUpdatedData.game);
-
         if (![GameState.GATHER, GameState.SHUFFLE].includes(gameUpdatedData.game.state)) {
             this.router.navigateByUrl('game');
         }
+
+        console.log('game update', gameUpdatedData.game);
     }
 
     public onSubmit(): void {

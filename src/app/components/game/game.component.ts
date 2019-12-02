@@ -38,11 +38,12 @@ export class GameComponent implements OnInit, OnDestroy {
     private updateGame(gameUpdatedData: GameUpdated): void {
         this.playerId = localStorage.getItem('playerId');
         this.game = gameUpdatedData.game;
-        console.log('game update', this.game);
 
         if ([GameState.GATHER, GameState.SHUFFLE].includes(this.game.state)) {
             this.router.navigateByUrl('character');
         }
+
+        console.log('game update', this.game);
     }
 
     public selectCard(card: Card) {
