@@ -54,8 +54,12 @@ export class GameEngineService {
         this.socket.emit('explainTheEvidence', formData);
     }
 
-    public requestGame(): void {
-        this.socket.emit('requestGame');
+    public refreshGame(): void {
+        this.socket.emit('refreshGame');
+    }
+
+    public resetGame(): void {
+        this.socket.emit('resetGame');
     }
 
     public getGameUpdatedObservable(): Observable<GameUpdated> {

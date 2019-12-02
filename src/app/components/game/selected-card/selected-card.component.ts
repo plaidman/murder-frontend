@@ -65,6 +65,6 @@ export class SelectedCardComponent {
     }
 
     public passBlame() {
-        this.gameService.explainTheEvidence({ card: this.selectedCard });
+        this.gameService.explainTheEvidence({ cardId: this.selectedCard.id });
     }
 }

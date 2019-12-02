@@ -27,7 +27,7 @@ export class GameComponent implements OnInit, OnDestroy {
             this.subscription = observable.subscribe(this.updateGame.bind(this));
         }
 
-        this.gameEngine.requestGame();
+        this.gameEngine.refreshGame();
     }
 
     public ngOnDestroy() {

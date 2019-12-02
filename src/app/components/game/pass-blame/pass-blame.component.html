@@ -1,7 +1,7 @@
 <mat-card class="passBlame">
   <mat-card-title>No It Was Not {{game.players[game.accuseeId].name}}!!</mat-card-title>
   <mat-card-subtitle *ngIf="playerId === game.accuseeId">
-    Select a card to the left to swap accusees.
+    Select any card to the left to swap accusees (even a card that is not yours).
   </mat-card-subtitle>
   <mat-card-subtitle *ngIf="playerId !== game.accuseeId">
     Listen to {{game.players[game.accuseeId].name}} explain why it absolutely wasn't them, probably.

@@ -1,3 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="navigation" color="primary">
   <span>Murder at Fieri Manor</span>
+  <span class="buttons">
+    <mat-icon class="hide" (click)="resetGame()">cancel</mat-icon>
+    <mat-icon (click)="refreshGame()">refresh</mat-icon>
+  </span>
 </mat-toolbar>

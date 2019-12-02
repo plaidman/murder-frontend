@@ -23,8 +23,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
     ) { }
 
     public ngOnInit() {
-        // todo
-        //   offer some prebuilt characters
+        // todo offer some prebuilt characters
 
         const character: SetupPlayer = this.unpackCharacter();
 
@@ -48,7 +47,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
             this.updateSub = observable.subscribe(this.updateGame.bind(this));
         }
 
-        this.gameEngine.requestGame();
+        this.gameEngine.refreshGame();
     }
 
     public ngOnDestroy() {
