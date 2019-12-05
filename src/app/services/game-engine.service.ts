@@ -50,8 +50,16 @@ export class GameEngineService {
         this.socket.emit('passTheBlame');
     }
 
-    public explainTheEvidence(formData: ExplainEvidence): void {
-        this.socket.emit('explainTheEvidence', formData);
+    public startExplanation(formData: ExplainEvidence): void {
+        this.socket.emit('startExplanation', formData);
+    }
+
+    public startExpertOpinion(): void {
+        this.socket.emit('startExpertOpinion');
+    }
+
+    public startAccuserPeek(): void {
+        this.socket.emit('startAccuserPeek');
     }
 
     public refreshGame(): void {

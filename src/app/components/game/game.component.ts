@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { findCardById } from 'src/app/services/findCardById';
 import { GameEngineService } from 'src/app/services/game-engine.service';
 import { Card, Game, GameState } from 'src/app/services/gameModels';
 import { GameUpdated } from 'src/app/services/socketModels';
@@ -41,6 +42,10 @@ export class GameComponent implements OnInit, OnDestroy {
 
         if ([GameState.GATHER, GameState.SHUFFLE].includes(this.game.state)) {
             this.router.navigateByUrl('character');
+        }
+
+        if (this.selectedCard) {
+            this.selectedCard = findCardById(this.game, this.selectedCard.id, false);
         }
 
         console.log('game update', this.game);

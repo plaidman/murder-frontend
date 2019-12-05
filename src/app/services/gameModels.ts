@@ -29,6 +29,7 @@ export interface Game {
     accuserIds: string[];
     currentAccuser: number;
     accuseeId: string;
+    expertId: string;
     messages: string[];
 }
 
@@ -45,7 +46,7 @@ export interface Card {
     description: string;
     type: CardType;
     expertise: string;
-    expertPlayerId: string;
+    expertId: string;
     accuseeName: string;
     accuseeId: string;
     isConclusive: boolean; // if true, permanently face up and can't be traded

@@ -23,7 +23,7 @@ export class RebuttalComponent implements OnChanges {
     }
 
     public explainTheEvidence() {
-        this.gameService.explainTheEvidence({ cardId: undefined });
+        this.gameService.startExplanation({ cardId: undefined });
     }
 
     public passTheBlame() {

@@ -1,17 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GameEngineService } from 'src/app/services/game-engine.service';
-import { Card, CardType, Game } from 'src/app/services/gameModels';
-
-const hiddenCard: Card = {
-    id: '',
-    accuseeId: '',
-    accuseeName: '',
-    description: '<card not visible>',
-    expertPlayerId: '',
-    expertise: '',
-    isConclusive: false,
-    type: CardType.HIDDEN,
-};
+import { Card, Game } from 'src/app/services/gameModels';
+import { hiddenCard } from 'src/app/services/hiddenCard';
 
 @Component({
     selector: 'app-selected-card',
@@ -50,6 +40,8 @@ export class SelectedCardComponent {
 
         this.isCardVisible = false;
         this.displayedCard = hiddenCard;
+        // todo clean up testing
+        this.displayedCard = card;
         if (player.handCards.includes(card) || card.isConclusive) {
             this.isCardVisible = true;
             this.displayedCard = card;
@@ -65,7 +57,6 @@ export class SelectedCardComponent {
     }
 
     public passBlame() {
-        this.gameService.explainTheEvidence({ cardId: this.selectedCard.id });
-        this.dismissEvent.emit();
+        this.gameService.startExplanation({ cardId: this.selectedCard.id });
     }
 }
