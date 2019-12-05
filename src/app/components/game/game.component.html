@@ -17,6 +17,7 @@
       <app-rebuttal [game]="game" [playerId]="playerId" *ngIf="game.state === 'rebuttal'"></app-rebuttal>
       <app-pass-blame [game]="game" [playerId]="playerId" *ngIf="game.state === 'passBlame'"></app-pass-blame>
       <app-explain [game]="game" [playerId]="playerId" *ngIf="game.state === 'explain'"></app-explain>
+      <app-peek [game]="game" [playerId]="playerId" *ngIf="game.state === 'peek'"></app-peek>
     </div>
   </div>
 </div>

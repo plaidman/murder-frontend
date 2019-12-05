@@ -1,0 +1,26 @@
+<mat-card class="accuserPeek">
+  <mat-card-title>
+    {{game.players[accuserId].name}} is peeking at a card...
+  </mat-card-title>
+
+  <mat-card-subtitle *ngIf="playerId === accuserId">
+    Pick one of {{game.players[game.accuseeId].name}}'s cards.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId === accuserId">
+    {{game.players[game.accuseeId].name}} swapped this card's accusee.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId === accuserId">
+    Now would be some good time to take some notes. You won't be able to see the card after this.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId !== accuserId">
+    {{game.players[game.expertId].name}} will decide if the evidence is conclusive next.
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <app-evidence-card [card]="accusationCard"></app-evidence-card>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="playerId === accuserId">
+    <button mat-button color="primary" (click)="expertOpinion()">expert opinion</button>
+  </mat-card-actions>
+</mat-card>

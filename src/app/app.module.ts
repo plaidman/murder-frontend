@@ -12,6 +12,7 @@ import { ExplainComponent } from './components/game/explain/explain.component';
 import { GameComponent } from './components/game/game.component';
 import { GameNotesComponent } from './components/game/notes/notes.component';
 import { PassBlameComponent } from './components/game/pass-blame/pass-blame.component';
+import { PeekComponent } from './components/game/peek/peek.component';
 import { PlayerListComponent } from './components/game/player-list/player-list.component';
 import { RebuttalComponent } from './components/game/rebuttal/rebuttal.component';
 import { SelectedCardComponent } from './components/game/selected-card/selected-card.component';
@@ -42,6 +43,7 @@ const socketConfig: SocketIoConfig = {
         RebuttalComponent,
         PassBlameComponent,
         ExplainComponent,
+        PeekComponent,
     ],
     imports: [
         ReactiveFormsModule,
