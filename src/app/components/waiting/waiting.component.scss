@@ -1,6 +1,20 @@
-.waiting {
+.story {
+  max-width: 800px;
   margin-top: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+
+  mat-card-title {
+    margin-bottom: 1.15rem;
+  }
+
+  p {
+    font-size: 1.10rem;
+  }
+}
+
+.waiting {
+  max-width: 800px;
+  margin-bottom: 1rem;
   border: 1px solid rgba(0,0,0,.06);
 
   mat-card-title {
@@ -38,6 +52,7 @@
 }
 
 app-messages {
+  max-width: 832px;
   margin-bottom: 1rem;
   display: block;
 }

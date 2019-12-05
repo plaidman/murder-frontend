@@ -6,7 +6,7 @@ mat-card {
     font-size: 1.15rem;
   }
 
-  mat-card-subtitle.twoLine {
+  mat-card-subtitle:not(:last-of-type) {
     margin-bottom: 4px;
   }
 

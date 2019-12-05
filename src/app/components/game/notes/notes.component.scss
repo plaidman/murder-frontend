@@ -6,6 +6,10 @@
     font-size: 1.15rem;
   }
 
+  mat-card-subtitle:not(:last-of-type) {
+    margin-bottom: 4px;
+  }
+
   mat-form-field {
     width: 100%;
     margin-bottom: 1rem;

@@ -6,7 +6,7 @@
     margin-bottom: 1rem;
   }
 
-  mat-card-subtitle.twoLine {
+  mat-card-subtitle:not(:last-of-type) {
     margin-bottom: 4px;
   }
 

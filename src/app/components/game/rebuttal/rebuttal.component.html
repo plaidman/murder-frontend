@@ -1,6 +1,6 @@
 <mat-card class="rebuttal">
   <mat-card-title>No It Was Not {{game.players[game.accuseeId].name}}!!</mat-card-title>
-  <mat-card-subtitle class="twoLine" *ngIf="playerId === game.accuseeId">
+  <mat-card-subtitle *ngIf="playerId === game.accuseeId">
     Pass the blame to swap the accusee with another.
   </mat-card-subtitle>
   <mat-card-subtitle *ngIf="playerId === game.accuseeId">
