@@ -20,10 +20,16 @@ export interface SetupPlayer {
 }
 
 export interface ExplainEvidence {
+    // from client
     cardId?: string;
 }
 
 export interface StartGame {
     // from client
     playerId: string;
+}
+
+export interface ExpertAnalyzed {
+    // from client
+    conclusive: boolean;
 }

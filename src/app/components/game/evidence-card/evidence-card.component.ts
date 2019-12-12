@@ -8,4 +8,12 @@ import { Card } from 'src/app/services/gameModels';
 })
 export class EvidenceCardComponent {
     @Input() public card: Card;
+
+    public conclusiveString(): string {
+        if (this.card.isConclusive) {
+            return ' (conclusive)';
+        }
+
+        return '';
+    }
 }

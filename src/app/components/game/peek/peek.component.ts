@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges } from '@angular/core';
+import { findCardById } from 'src/app/services/findCardById';
 import { GameEngineService } from 'src/app/services/game-engine.service';
 import { Card, Game } from 'src/app/services/gameModels';
+import { hiddenCard } from 'src/app/services/hiddenCard';
 
 @Component({
     selector: 'app-peek',
@@ -10,8 +12,9 @@ import { Card, Game } from 'src/app/services/gameModels';
 export class PeekComponent implements OnChanges {
     @Input() public game: Game;
     @Input() public playerId: string;
-    public accusationCard: Card;
+    public peekCard: Card;
     public accuserId: string;
+    public accusationCard: Card;
 
     constructor(
         private gameService: GameEngineService,
@@ -19,16 +22,24 @@ export class PeekComponent implements OnChanges {
 
     public ngOnChanges() {
         this.accuserId = this.game.accuserIds[this.game.currentAccuser];
+
         const accuserCards = this.game.players[this.accuserId].handCards;
         this.accusationCard = accuserCards[accuserCards.length - 1];
-    }
 
-    public thing() {
         if (this.game.accuseeSwapCardId) {
-            // display the card that the accusee swapped
-        } else {
-            // let the accuser choose a card from the accusee pile
+            // todo there is no way of knowing which card this is, if the accusee passed the blame
+
+            if (this.playerId !== this.accuserId) {
+                this.peekCard = hiddenCard;
+                return;
+            }
+
+            this.peekCard = findCardById(this.game, this.game.accuseeSwapCardId, false);
+            return;
         }
+
+
+        this.peekCard = undefined;
     }
 
     public expertOpinion() {

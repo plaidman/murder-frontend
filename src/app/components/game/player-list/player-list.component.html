@@ -12,7 +12,7 @@
           [ngClass]="{ card: true, selected: isSelected(card) }"
           *ngFor="let card of game.players[accuserPlayerId].handCards"
         >
-          {{isVisible(card) ? 'o' : 'x'}}
+          {{cardBack(card)}}
         </div>
       </div>
     </ng-container>

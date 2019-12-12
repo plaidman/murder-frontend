@@ -1,0 +1,16 @@
+.accuserPeek {
+  border: 1px solid rgba(0,0,0,.06);
+
+  mat-card-subtitle:not(:last-of-type) {
+    margin-bottom: 4px;
+  }
+
+  mat-card-title {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  mat-card-content {
+    margin-bottom: 0;
+  }
+}

@@ -15,6 +15,7 @@ export class SelectedCardComponent {
     public processedGame: Game;
     public displayedCard: Card;
     public isCardVisible: boolean;
+    public accusationCard: Card;
 
     constructor(
         private gameService: GameEngineService,
@@ -22,6 +23,10 @@ export class SelectedCardComponent {
 
     @Input() set game(game: Game) {
         this.processedGame = game;
+
+        const accuserId = game.accuserIds[this.game.currentAccuser];
+        const accuserCards = game.players[accuserId].handCards;
+        this.accusationCard = accuserCards[accuserCards.length - 1];
     }
 
     get game() {
@@ -41,7 +46,7 @@ export class SelectedCardComponent {
         this.isCardVisible = false;
         this.displayedCard = hiddenCard;
         // todo clean up testing
-        this.displayedCard = card;
+        // this.displayedCard = card;
         if (player.handCards.includes(card) || card.isConclusive) {
             this.isCardVisible = true;
             this.displayedCard = card;
@@ -58,5 +63,25 @@ export class SelectedCardComponent {
 
     public passBlame() {
         this.gameService.startExplanation({ cardId: this.selectedCard.id });
+    }
+
+    public displaySelect(): boolean {
+        if (this.game.state !== 'passBlame') {
+            return false;
+        }
+
+        if (this.playerId !== this.game.accuseeId) {
+            return false;
+        }
+
+        if (this.card.isConclusive === true) {
+            return false;
+        }
+
+        if (this.card.id === this.accusationCard.id) {
+            return false;
+        }
+
+        return true;
     }
 }

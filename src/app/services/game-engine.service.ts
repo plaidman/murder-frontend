@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Observable, Subscription } from 'rxjs';
-import { ExplainEvidence, GameUpdated, PlayerAdded, SetupPlayer } from './socketModels';
+import { ExpertAnalyzed, ExplainEvidence, GameUpdated, PlayerAdded, SetupPlayer } from './socketModels';
 
 @Injectable({
     providedIn: 'root',
@@ -68,6 +68,10 @@ export class GameEngineService {
 
     public resetGame(): void {
         this.socket.emit('resetGame');
+    }
+
+    public expertAnalyzed(formData: ExpertAnalyzed): void {
+        this.socket.emit('finishExpertOpinion', formData);
     }
 
     public getGameUpdatedObservable(): Observable<GameUpdated> {

@@ -18,6 +18,7 @@
       <app-pass-blame [game]="game" [playerId]="playerId" *ngIf="game.state === 'passBlame'"></app-pass-blame>
       <app-explain [game]="game" [playerId]="playerId" *ngIf="game.state === 'explain'"></app-explain>
       <app-peek [game]="game" [playerId]="playerId" *ngIf="game.state === 'peek'"></app-peek>
+      <app-expert [game]="game" [playerId]="playerId" *ngIf="game.state === 'expert'"></app-expert>
     </div>
   </div>
 </div>

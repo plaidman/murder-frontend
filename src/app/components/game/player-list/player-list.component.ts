@@ -25,8 +25,18 @@ export class PlayerListComponent {
         if (player.handCards.includes(card)) {
             return true;
         }
+    }
 
-        return card.isConclusive;
+    public cardBack(card: Card): string {
+        if (this.isVisible(card)) {
+            return 'o';
+        }
+
+        if (card.isConclusive) {
+            return '#';
+        }
+
+        return 'x';
     }
 
     public isSelected(card: Card) {

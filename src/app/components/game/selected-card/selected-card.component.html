@@ -6,8 +6,7 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button *ngIf="game.state === 'passBlame' && playerId === game.accuseeId"
-      (click)="passBlame()" color="primary" mat-button>select</button>
+    <button *ngIf="displaySelect()" (click)="passBlame()" color="primary" mat-button>select</button>
     <button (click)="dismiss()" color="primary" mat-button>dismiss</button>
   </mat-card-actions>
 </mat-card>

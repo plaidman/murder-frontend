@@ -1,0 +1,18 @@
+<mat-card class="explainEvidence">
+  <mat-card-title>No It Was Not {{game.players[game.accuseeId].name}}!!</mat-card-title>
+  <mat-card-subtitle *ngIf="playerId === game.experId">
+    Explain whether this piece of evidence is conclusive or inconclusive.
+  </mat-card-subtitle>
+  <mat-card-subtitle *ngIf="playerId !== game.expertId">
+    Listen to {{game.players[game.expertId].name}} explain why this explanation is conclusive or inconclusive.
+  </mat-card-subtitle>
+
+  <mat-card-content>
+    <app-evidence-card [card]="accusationCard"></app-evidence-card>
+  </mat-card-content>
+
+  <mat-card-actions *ngIf="playerId === game.expertId">
+    <button mat-button color="primary" (click)="conclusive()">evidence is conclusive</button>
+    <button mat-button color="primary" (click)="inconclusive()">evidence is inconclusive</button>
+  </mat-card-actions>
+</mat-card>

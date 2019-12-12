@@ -3,21 +3,22 @@
     {{game.players[accuserId].name}} is peeking at a card...
   </mat-card-title>
 
-  <mat-card-subtitle *ngIf="playerId === accuserId">
+  <mat-card-subtitle *ngIf="playerId === accuserId && !game.accuseeSwapCardId">
     Pick one of {{game.players[game.accuseeId].name}}'s cards.
   </mat-card-subtitle>
-  <mat-card-subtitle *ngIf="playerId === accuserId">
-    {{game.players[game.accuseeId].name}} swapped this card's accusee.
+  <mat-card-subtitle *ngIf="playerId === accuserId && game.accuseeSwapCardId">
+    Now would be some good time to take some notes.
   </mat-card-subtitle>
-  <mat-card-subtitle *ngIf="playerId === accuserId">
-    Now would be some good time to take some notes. You won't be able to see the card after this.
+  <mat-card-subtitle *ngIf="playerId === accuserId && game.accuseeSwapCardId">
+    You won't be able to see the card after this.
   </mat-card-subtitle>
   <mat-card-subtitle *ngIf="playerId !== accuserId">
-    {{game.players[game.expertId].name}} will decide if the evidence is conclusive next.
+    Get ready, {{game.players[game.expertId].name}} will decide if the evidence is conclusive next.
   </mat-card-subtitle>
 
   <mat-card-content>
-    <app-evidence-card [card]="accusationCard"></app-evidence-card>
+    <app-evidence-card [card]="peekCard" *ngIf="playerId === accuserId"></app-evidence-card>
+    <app-evidence-card [card]="accusationCard" *ngIf="playerId !== accuserId"></app-evidence-card>
   </mat-card-content>
 
   <mat-card-actions *ngIf="playerId === accuserId">
