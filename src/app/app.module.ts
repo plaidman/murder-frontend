@@ -22,6 +22,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { WaitingComponent } from './components/waiting/waiting.component';
 import { AppMaterialModule } from './modules/app-material.module';
 import { AppRoutingModule } from './modules/app-routing.module';
+import { JeanetteComponent } from './jeanette/jeanette.component';
 
 const socketConfig: SocketIoConfig = {
     url: 'http://localhost:8033',
@@ -46,6 +47,7 @@ const socketConfig: SocketIoConfig = {
         ExplainComponent,
         PeekComponent,
         ExpertComponent,
+        JeanetteComponent,
     ],
     imports: [
         ReactiveFormsModule,
